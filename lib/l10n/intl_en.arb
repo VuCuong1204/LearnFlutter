@@ -1,0 +1,14 @@
+{
+  "splash": "Splash",
+  "home": "home",
+  "username": "Username",
+  "password": "Password",
+  "empty_field": "Require field",
+  "login": "Login",
+  "no_internet": "No internet",
+  "timeout_exception": "Timeout exception",
+  "unknown_error": "Unknown error",
+  "login_success": "Login success",
+  "test": "test",
+  "app_name": "Funny Voice"
+}
