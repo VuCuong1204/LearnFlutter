@@ -8,6 +8,7 @@ import 'package:learn_app/common/widgets/button/basic_app_button.dart';
 import 'package:learn_app/core/configs/app_images.dart';
 import 'package:learn_app/core/configs/app_vectors.dart';
 import 'package:learn_app/core/theme/app_color.dart';
+import 'package:learn_app/presentation/auth/pages/signup_or_signin.dart';
 import 'package:learn_app/presentation/choose_mode/bloc/theme_cubit.dart';
 import 'package:learn_app/presentation/choose_mode/pages/choose_mode.dart'
     as AssetImages;
@@ -35,7 +36,7 @@ class _ChooseModePage extends State<ChooseModePage> {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: AssetImage(
-                  AppImages.chooseAuthBG,
+                  AppImages.chooseMadeBG,
                 ),
               ),
             ),
@@ -45,7 +46,9 @@ class _ChooseModePage extends State<ChooseModePage> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(
-                vertical: AppDimens.dimen_50, horizontal: AppDimens.dimen_40),
+              vertical: AppDimens.dimen_50,
+              horizontal: AppDimens.dimen_40,
+            ),
             child: Column(
               children: [
                 Align(
@@ -129,6 +132,8 @@ class _ChooseModePage extends State<ChooseModePage> {
                                   color: AppColors.white.withOpacity(0),
                                   shape: BoxShape.circle,
                                 ),
+                                height: AppDimens.dimen_74,
+                                width: AppDimens.dimen_74,
                                 child: SvgPicture.asset(
                                   AppVectors.sun,
                                   fit: BoxFit.none,

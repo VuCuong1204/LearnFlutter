@@ -14,7 +14,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   dio: ^5.4.0
   connectivity_plus: ^6.0.5
-  flutter_svg: ^2.0.9
+  flutter_svg: ^2.2.2 
   flutter_bloc: ^9.1.1
   hydrated_bloc: ^10.1.1
   path_provider:
@@ -52,6 +52,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+    - assets/vectors/
 
 fonts:
     - family: Roboto
