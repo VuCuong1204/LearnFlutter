@@ -23,7 +23,7 @@ class SignupOrSignin extends StatelessWidget {
         ),
         Align(
           alignment: Alignment.bottomRight,
-          child: Image.asset(AppVectors.unionBottom),
+          child: SvgPicture.asset(AppVectors.unionBottom),
         ),
         Align(
           alignment: Alignment.bottomLeft,
