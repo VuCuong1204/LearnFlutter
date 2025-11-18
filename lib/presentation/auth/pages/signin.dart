@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:learn_app/common/widgets/appbar/app_bar.dart';
+import 'package:learn_app/common/widgets/button/basic_app_button.dart';
 import 'package:learn_app/core/configs/app_vectors.dart';
 import 'package:learn_app/core/theme/app_color.dart';
+import 'package:learn_app/domain/usecase/auth/signin.dart';
 import 'package:learn_app/resources/app_common.dart';
+import 'package:learn_app/service_locator.dart';
 
 class SigninPage extends StatelessWidget {
   SigninPage({super.key});
@@ -23,8 +26,47 @@ class SigninPage extends StatelessWidget {
             width: AppDimens.dimen_40,
           ),
         ),
-        bottomNavigationBar: _registerText(),
+        bottomNavigationBar: _registerText(context),
+        body: SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(
+            horizontal: AppDimens.dimen_30,
+            vertical: AppDimens.dimen_50,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              _signinText(),
+              const SizedBox(height: AppDimens.dimen_24),
+              _supportText(),
+              const SizedBox(height: AppDimens.dimen_24),
+              _usernameOrEmailField(context),
+              const SizedBox(height: AppDimens.dimen_20),
+              _passwordField(context),
+              const SizedBox(height: AppDimens.dimen_16),
+              _recoveryPasswordText(),
+              const SizedBox(height: AppDimens.dimen_16),
+              BasicAppButton(
+                title: 'Sign in',
+                onPressed:() async {
+                   var result = await sl<SigninUseCase>().call()
+                }
+              ),
+            ],
+          ),
+        ),
       ),
+    );
+  }
+
+  Widget _signinText() {
+    return const Text(
+      'Sign In',
+      style: TextStyle(
+        fontWeight: FontWeight.bold,
+        fontSize: AppDimens.dimen_32,
+      ),
+      textAlign: TextAlign.center,
     );
   }
 

@@ -5,6 +5,7 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:learn_app/core/theme/app_theme.dart';
 import 'package:learn_app/presentation/choose_mode/bloc/theme_cubit.dart';
 import 'package:learn_app/presentation/splash/pages/splash.dart';
+import 'package:learn_app/service_locator.dart';
 import 'package:path_provider/path_provider.dart';
 
 Future<void> main() async {
@@ -14,6 +15,9 @@ Future<void> main() async {
         ? HydratedStorageDirectory.web
         : HydratedStorageDirectory((await getTemporaryDirectory()).path),
   );
+
+  await initializeDependencies();
+
   runApp(const MyApp());
 }
 
