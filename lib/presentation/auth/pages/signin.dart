@@ -4,6 +4,8 @@ import 'package:learn_app/common/widgets/appbar/app_bar.dart';
 import 'package:learn_app/common/widgets/button/basic_app_button.dart';
 import 'package:learn_app/core/configs/app_vectors.dart';
 import 'package:learn_app/core/theme/app_color.dart';
+import 'package:learn_app/data/models/auth/create_user_req.dart';
+import 'package:learn_app/data/models/auth/signin_user_req.dart';
 import 'package:learn_app/domain/usecase/auth/signin.dart';
 import 'package:learn_app/resources/app_common.dart';
 import 'package:learn_app/service_locator.dart';
@@ -48,9 +50,35 @@ class SigninPage extends StatelessWidget {
               const SizedBox(height: AppDimens.dimen_16),
               BasicAppButton(
                 title: 'Sign in',
-                onPressed:() async {
-                   var result = await sl<SigninUseCase>().call()
-                }
+                onPressed: () async {
+                  var result = await sl<SigninUseCase>().call(
+                    params: SigninUserReq(
+                      email: _email.text.toString(),
+                      password: _password.text.toString(),
+                    ),
+                  );
+
+                  result.fold(
+                    (l) {
+                      var snackBar = SnackBar(
+                        content: Text(l),
+                        behavior: SnackBarBehavior.floating,
+                      );
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    },
+                    (r) {
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                          builder: (BuildContext content) => const HomePage(),
+                        ),
+                        (route) => false,
+                      );
+                    },
+                  );
+                },
+                textSize: AppDimens.dimen_22,
+                weight: FontWeight.w500,
               ),
             ],
           ),

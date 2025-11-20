@@ -1,11 +1,12 @@
-
 import 'package:dartz/dartz.dart';
 import 'package:learn_app/core/usecase/usecase.dart';
-import 'package:learn_app/data/models/songs/signin_user_req.dart';
+import 'package:learn_app/data/models/auth/signin_user_req.dart';
+import 'package:learn_app/domain/repository/auth/auth.dart';
+import 'package:learn_app/service_locator.dart';
 
-class SigninUseCase implements Usecase<Either,SigninUserReq>{
+class SigninUseCase implements Usecase<Either, SigninUserReq> {
   @override
   Future<Either> call({SigninUserReq? params}) async {
-    return sl.
+    return sl<AuthRepository>().signin(params!);
   }
 }
