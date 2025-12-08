@@ -1,35 +1,31 @@
 import 'package:dartz/dartz.dart';
+import 'package:learn_app/data/sources/songs/song_firebase_service.dart';
 import 'package:learn_app/domain/repository/song/song.dart';
+import 'package:learn_app/service_locator.dart';
 
-class SongRepositoryImpl extends SongsRepository{
+class SongRepositoryImpl extends SongsRepository {
   @override
-  Future<Either> addOrRemoveFavoriteSong(String songId) {
-    // TODO: implement addOrRemoveFavoriteSong
-    throw UnimplementedError();
+  Future<Either> addOrRemoveFavoriteSong(String songId) async {
+    return await sl<SongFirebaseService>().addOrRemoveFavoriteSong(songId);
   }
 
   @override
-  Future<Either> getNewsSongs() {
-    // TODO: implement getNewsSongs
-    throw UnimplementedError();
+  Future<Either> getNewsSongs() async {
+    return await sl<SongFirebaseService>().getNewSongs();
   }
 
   @override
-  Future<Either> getPlayList() {
-    // TODO: implement getPlayList
-    throw UnimplementedError();
+  Future<Either> getPlayList() async {
+    return await sl<SongFirebaseService>().getPlayList();
   }
 
   @override
-  Future<Either> getUserFavoriteSongs() {
-    // TODO: implement getUserFavoriteSongs
-    throw UnimplementedError();
+  Future<Either> getUserFavoriteSongs() async {
+    return await sl<SongFirebaseService>().getUserFavoriteSong();
   }
 
   @override
-  Future<bool> isFavoriteSong(String songId) {
-    // TODO: implement isFavoriteSong
-    throw UnimplementedError();
+  Future<bool> isFavoriteSong(String songId) async {
+    return await sl<SongFirebaseService>().isFavoriteSong(songId);
   }
-
 }

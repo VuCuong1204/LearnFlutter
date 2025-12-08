@@ -74,12 +74,17 @@ class SignupPage extends StatelessWidget {
                     );
                     ScaffoldMessenger.of(context).showSnackBar(snackBar);
                   }, (r) {
-                    Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(
-                        builder: (BuildContext context) => const HomePage(),
+                    // Navigator.pushAndRemoveUntil(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (BuildContext context) => const HomePage(),
+                    //   ),
+                    //   (route) => false,
+                    // );
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text("Đăng nhập thành công"),
                       ),
-                      (route) => false,
                     );
                   });
                 },
@@ -132,9 +137,73 @@ class SignupPage extends StatelessWidget {
     );
   }
 
-  Widget _fullNameField(BuildContext context){
+  Widget _fullNameField(BuildContext context) {
     return TextField(
-      controller: ,
-    )
+      controller: _fullName,
+      decoration: const InputDecoration(
+        hintText: "Full Name",
+      ).applyDefaults(
+        Theme.of(context).inputDecorationTheme,
+      ),
+    );
+  }
+
+  Widget _passwordField(BuildContext context) {
+    return TextField(
+      controller: _email,
+      decoration: const InputDecoration(
+        hintText: "Enter Email",
+      ).applyDefaults(Theme.of(context).inputDecorationTheme),
+    );
+  }
+
+  Widget _emailField(BuildContext context) {
+    return TextField(
+      controller: _password,
+      decoration: const InputDecoration(
+        hintText: "Password",
+      ).applyDefaults(
+        Theme.of(context).inputDecorationTheme,
+      ),
+    );
+  }
+
+  Widget _signinText(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        vertical: AppDimens.dimen_40,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const Text(
+            "Do You Have An Account?",
+            style: TextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: AppDimens.dimen_16,
+            ),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (BuildContext context) => SignupPage(),
+                ),
+              );
+            },
+            child: const Text(
+              "Sign In",
+              style: TextStyle(
+                fontWeight: FontWeight.w500,
+                fontSize: AppDimens.dimen_16,
+                color: AppColors.blue,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

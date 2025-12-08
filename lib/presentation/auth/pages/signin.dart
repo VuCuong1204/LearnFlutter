@@ -7,6 +7,7 @@ import 'package:learn_app/core/theme/app_color.dart';
 import 'package:learn_app/data/models/auth/create_user_req.dart';
 import 'package:learn_app/data/models/auth/signin_user_req.dart';
 import 'package:learn_app/domain/usecase/auth/signin.dart';
+import 'package:learn_app/presentation/auth/pages/signup.dart';
 import 'package:learn_app/resources/app_common.dart';
 import 'package:learn_app/service_locator.dart';
 
@@ -67,12 +68,17 @@ class SigninPage extends StatelessWidget {
                       ScaffoldMessenger.of(context).showSnackBar(snackBar);
                     },
                     (r) {
-                      Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(
-                          builder: (BuildContext content) => const HomePage(),
+                      // Navigator.pushAndRemoveUntil(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (BuildContext content) => const HomePage(),
+                      //   ),
+                      //   (route) => false,
+                      // );
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text("Đăng nhập thành công"),
                         ),
-                        (route) => false,
                       );
                     },
                   );

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "763996484683",
+    "project_id": "all-app-dev",
+    "storage_bucket": "all-app-dev.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:763996484683:android:599895ef93d461dd28c9ce",
+        "android_client_info": {
+          "package_name": "eztech.vn.mobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC94_GEDLPFp65JITdslFgnIkkfKsYRtQg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
