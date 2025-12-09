@@ -6,6 +6,8 @@ import 'package:learn_app/common/widgets/button/basic_app_button.dart';
 import 'package:learn_app/core/configs/app_images.dart';
 import 'package:learn_app/core/configs/app_vectors.dart';
 import 'package:learn_app/core/theme/app_color.dart';
+import 'package:learn_app/presentation/auth/pages/signin.dart';
+import 'package:learn_app/presentation/auth/pages/signup.dart';
 import 'package:learn_app/resources/app_dimens.dart';
 
 class SignupOrSignin extends StatelessWidget {
@@ -75,12 +77,12 @@ class SignupOrSignin extends StatelessWidget {
                       flex: 1,
                       child: BasicAppButton(
                         onPressed: () {
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //     builder: (BuildContext context) => SignupPage(),
-                          //   ),
-                          // );
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (BuildContext context) => SignupPage(),
+                            ),
+                          );
                         },
                         title: "Register",
                         textSize: AppDimens.dimen_20,
@@ -94,12 +96,12 @@ class SignupOrSignin extends StatelessWidget {
                       flex: 1,
                       child: TextButton(
                         onPressed: () {
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //     builder: (BuildContext context) => SigninPage(),
-                          //   ),
-                          // );
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (BuildContext context) => SigninPage(),
+                            ),
+                          );
                         },
                         child: Text(
                           "Sign In",
